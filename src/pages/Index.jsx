@@ -37,10 +37,10 @@ const Index = () => {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
           {profiles.map((profile, index) => (
             <Box key={index} p={5} shadow="md" borderWidth="1px">
-              <Heading as="h3" size="md">{profile.headline}</Heading>
-              <Text mt={4}>Skills: {profile.skills.join(', ')}</Text>
-              <Text mt={4}>Experience: {profile.experience} years</Text>
-              <Text mt={4}>Preferences: {profile.preferences.join(', ')}</Text>
+              <Heading as="h3" size="md">{profile.headline || 'No headline provided'}</Heading>
+              <Text mt={4}>Skills: {profile.skills ? profile.skills.join(', ') : 'No skills listed'}</Text>
+              <Text mt={4}>Experience: {profile.experience || 'No experience listed'} years</Text>
+              <Text mt={4}>Preferences: {profile.preferences ? profile.preferences.join(', ') : 'No preferences listed'}</Text>
             </Box>
           ))}
         </SimpleGrid>
